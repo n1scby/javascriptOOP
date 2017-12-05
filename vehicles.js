@@ -45,4 +45,40 @@ var truck1 = new Truck("Ford", "Ranger", 2008, true);
 console.log(truck1.make + " " + truck1.model + " " + truck1.year + " " + truck1.extendedCab);
 
 
+// Book Object and add to array
+
+var Book = function Book(author, title){
+    this.author = author;
+    this.title = title;
+}
+
+var books = [];
+var book1 = new Book("Shakespeare", "Romeo and Juliet");
+books.push(book1);
+var book2 = new Book("Stephen King", "The Gunslinger");
+books.push(book2);
+
+books.forEach(function(item, index, value){
+    console.log(item.author + " " + item.title);
+});
+
+
+// Create Customer Object and add to array
+
+var customers = [];
+var Customer = function Customer(firstName, lastName, accountNumber){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.accountNumber = accountNumber;
+
+}
+
+customers.push(new Customer("Joe", "Smith", 12345));
+customers.push(new Customer("Mary", "Jones", 45678));
+
+customers.forEach(function(item){
+    console.log(item.firstName + " " + item.lastName + " " + item.accountNumber);
+});
+
+
 
