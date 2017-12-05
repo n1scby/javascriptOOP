@@ -81,4 +81,42 @@ customers.forEach(function(item){
 });
 
 
+// More inheritance
 
+var RescueAnimal = function RescueAnimal(animalName, age, altered, color){
+    this.animalName = animalName;
+    this.age = age;
+    this.altered = altered;
+    this.color = color;
+    
+
+    this.animalGreeting = function animalGreeting(){
+        console.log("Hello, " + this.animalName + "!");
+    }
+}
+
+
+var Dog = function Dog(animalName, age, altered, color, breed){
+    RescueAnimal.call(this, animalName, age, altered, color);
+    this.breed = breed;
+}
+
+var Cat = function Cat(animalName, age, altered, color, type, declawed){
+    RescueAnimal.call(this, animalName, age, altered, color);
+    this.type = type;
+    this.declawed = declawed;
+}
+
+Dog.prototype = Object.create(RescueAnimal);
+Dog.prototype.constructor = Dog;
+
+Cat.prototype = Object.create(RescueAnimal);
+Cat.prototype = Cat;
+
+
+var dog1 = new Dog("Scooby Doo", "Young", true, "Brown", "Great Dane");
+var cat1 = new Cat("Morris", "Adult", true, "orange", "Domestic Short Hair", false);
+
+console.log(dog1.name + " " + dog1.age + " " + dog1.altered + dog1.color + dog1.breed);
+console.log(cat1.name + " " + cat1.age + " " + cat1.altered + cat1.color + cat1.type + " " + cat1.declawed);
+dog1.animalGreeting();
