@@ -33,7 +33,7 @@ console.log(car2.autoMake, car2.autoModel, car2.autoYear);
 // Inheritance
 
 var Truck = function Truck(make, model, year, extendedCab) {
-    Vehicle.call(this, year, make, model);
+    Vehicle.call(this, make, model, year);
     this.extendedCab = extendedCab;
 }
 
@@ -107,16 +107,16 @@ var Cat = function Cat(animalName, age, altered, color, type, declawed){
     this.declawed = declawed;
 }
 
-Dog.prototype = Object.create(RescueAnimal);
+Dog.prototype = Object.create(RescueAnimal.prototype);
 Dog.prototype.constructor = Dog;
 
-Cat.prototype = Object.create(RescueAnimal);
+Cat.prototype = Object.create(RescueAnimal.prototype);
 Cat.prototype = Cat;
 
 
 var dog1 = new Dog("Scooby Doo", "Young", true, "Brown", "Great Dane");
 var cat1 = new Cat("Morris", "Adult", true, "orange", "Domestic Short Hair", false);
 
-console.log(dog1.name + " " + dog1.age + " " + dog1.altered + dog1.color + dog1.breed);
-console.log(cat1.name + " " + cat1.age + " " + cat1.altered + cat1.color + cat1.type + " " + cat1.declawed);
+console.log(dog1.animalName + " " + dog1.age + " " + dog1.altered + dog1.color + dog1.breed);
+console.log(cat1.animalName + " " + cat1.age + " " + cat1.altered + cat1.color + cat1.type + " " + cat1.declawed);
 dog1.animalGreeting();
